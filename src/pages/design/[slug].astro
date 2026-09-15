@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ImageBlock from '../../components/blocks/ImageBlock.astro';
+import ImagesTwoBlock from '../../components/blocks/ImagesTwoBlock.astro';
+import TextBlock from '../../components/blocks/TextBlock.astro';
+import VideoBlock from '../../components/blocks/VideoBlock.astro';
+import VideosTwoBlock from '../../components/blocks/VideosTwoBlock.astro';
+import RotatingSvgBlock from '../../components/blocks/RotatingSvgBlock.astro';
+import ProjectNav from '../../components/ProjectNav.astro';
+import ProjectTitle from '../../components/ProjectTitle.astro';
+import { designProjects } from '../../data/projects.js';
+import { designProjectPages } from '../../data/designProjectPages.js';
+import { getNextSlug } from '../../data/projectNav.js';
+
+export function getStaticPaths() {
+  return designProjectPages.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const nextSlug = getNextSlug(designProjects, designProjectPages, project.slug);
+const HeroBlock = project.hero.endsWith(".mp4") ? VideoBlock : ImageBlock;
+const mediaBlockTypes = ["image", "video", "images-2", "videos-2", "rotating-svg"];
+const hasOnlyHero = !project.blocks.some((block) => mediaBlockTypes.includes(block.type));
+---
+<BaseLayout title={`Virginia Moura — ${project.title}`} active="design" theme="dark">
+  <ProjectTitle title={project.title} titleLines={project.titleLines} />
+
+  <section class="project">
+    <div class="project-blocks">
+      <HeroBlock src={project.hero} alt={project.title} />
+
+      {project.blocks.map((block) => {
+        if (block.type === "image") return <ImageBlock src={block.src} alt={block.alt} />;
+        if (block.type === "video") return <VideoBlock src={block.src} alt={block.alt} />;
+        if (block.type === "images-2") return <ImagesTwoBlock images={block.images} />;
+        if (block.type === "videos-2") return <VideosTwoBlock videos={block.videos} />;
+        if (block.type === "rotating-svg") return <RotatingSvgBlock src={block.src} alt={block.alt} bg={block.bg} />;
+        if (block.type === "text") return <TextBlock meta={block.meta} paragraphs={block.paragraphs} />;
+        return null;
+      })}
+    </div>
+
+    <ProjectNav nextHref={nextSlug && `/design/${nextSlug}`} hideTop={hasOnlyHero} />
+  </section>
+</BaseLayout>

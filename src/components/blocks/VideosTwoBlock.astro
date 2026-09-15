@@ -1,0 +1,10 @@
+---
+const { videos } = Astro.props;
+---
+<div class="block-videos-2 reveal">
+  {videos.map((video) => (
+    <div class="videos-2-item">
+      <video src={video.src} aria-label={video.alt} autoplay muted loop playsinline></video>
+    </div>
+  ))}
+</div>

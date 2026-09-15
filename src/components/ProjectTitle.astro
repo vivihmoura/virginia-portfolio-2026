@@ -1,0 +1,11 @@
+---
+const { title, titleLines } = Astro.props;
+---
+<h1 class="project-title">{titleLines
+  ? titleLines.map((line, i) => (
+      <>
+        {i > 0 && <br />}
+        <span class="title-line">{line}{i === titleLines.length - 1 && "."}</span>
+      </>
+    ))
+  : `${title}.`}</h1>

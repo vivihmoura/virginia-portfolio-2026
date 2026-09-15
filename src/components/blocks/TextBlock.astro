@@ -1,0 +1,38 @@
+---
+const { meta = [], paragraphs = [] } = Astro.props;
+
+const asSegments = (line) => (Array.isArray(line) ? line : [line]);
+---
+<div class="block-text reveal">
+  <div class="block-meta">
+    <p>
+      {meta.map((line, i) => (
+        <>
+          {i > 0 && <br />}
+          {asSegments(line).map((seg) =>
+            typeof seg === "string" ? (
+              seg
+            ) : (
+              <a href={seg.href} target="_blank" rel="noopener">{seg.text}</a>
+            )
+          )}
+        </>
+      ))}
+    </p>
+  </div>
+  <div class="block-text-content">
+    <p>
+      {paragraphs.map((paragraph, i) => (
+        <>
+          {i > 0 && <br /><br />}
+          {paragraph.split("\n").map((line, li) => (
+            <>
+              {li > 0 && <br />}
+              {line}
+            </>
+          ))}
+        </>
+      ))}
+    </p>
+  </div>
+</div>

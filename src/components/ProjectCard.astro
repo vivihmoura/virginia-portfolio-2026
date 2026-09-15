@@ -1,0 +1,10 @@
+---
+const { slug, name, href = "#" } = Astro.props;
+---
+<a class="item reveal" href={href}>
+  <div class="thumb thumb-hover-video">
+    <picture><source media="(max-width:768px)" srcset={`/images/${slug}/${slug}-thumb-home-mobile.gif`}><img alt={name} src={`/images/${slug}/${slug}-thumb-home-mobile.gif`}></picture>
+    <video muted playsinline loop src={`/images/${slug}/${slug}-thumb-home-desktop.mp4`} aria-label={name}></video>
+  </div>
+  <div class="name">{name}</div>
+</a>

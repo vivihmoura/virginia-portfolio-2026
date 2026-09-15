@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { designProjects } from '../data/projects.js';
+---
+<BaseLayout title="Virginia Moura — Design" active="design">
+  <section class="hero">
+    <h1>Designer &amp; Illustrator from Rio making people smile globally.</h1>
+  </section>
+
+  <section class="work">
+    <div class="grid">
+      {designProjects.map((project) => (
+        <ProjectCard slug={project.slug} name={project.name} href={project.href} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

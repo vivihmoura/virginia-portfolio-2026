@@ -1,0 +1,6 @@
+---
+const { src, alt = "" } = Astro.props;
+---
+<div class="block-video reveal">
+  <video src={src} aria-label={alt} autoplay muted loop playsinline></video>
+</div>

@@ -1,0 +1,7 @@
+---
+const { nextHref, hideTop = false } = Astro.props;
+---
+<div class="project-nav">
+  {!hideTop && <a href="#" class="project-nav-top">Top ↑</a>}
+  {nextHref && <a href={nextHref}>Next →</a>}
+</div>

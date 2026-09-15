@@ -1,0 +1,11 @@
+---
+const { src, alt = "", bg } = Astro.props;
+---
+<div class="block-rotating-svg reveal">
+  <div class="rotating-svg-wrap">
+    {bg && <img src={bg} alt="" class="rotating-svg-bg">}
+    <div class="rotating-svg-center">
+      <img src={src} alt={alt} class="rotating-svg">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+---
+const { images } = Astro.props;
+---
+<div class="block-images-2 reveal">
+  {images.map((image) => (
+    <img src={image.src} alt={image.alt ?? ""}>
+  ))}
+</div>

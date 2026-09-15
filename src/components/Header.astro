@@ -1,0 +1,52 @@
+---
+const { active } = Astro.props;
+---
+<header>
+  <a class="brand" href="/">Virginia Moura</a>
+  <nav>
+    <a href="/" class={active === "illustration" ? "active" : undefined}>Illustration</a>
+    <a href="/design" class={active === "design" ? "active" : undefined}>Design</a>
+    <a href="/about" class={active === "about" ? "active" : undefined}>About</a>
+    <a href="https://www.instagram.com/vivihmoura.illustrates/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.linkedin.com/in/virginiamoura/" target="_blank" rel="noopener">LinkedIn</a>
+  </nav>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<script>
+  const menuToggle=document.getElementById('menuToggle');
+  const nav=document.querySelector('header nav');
+  menuToggle.addEventListener('click',()=>{
+    const isOpen=nav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded',isOpen);
+    document.body.classList.toggle('nav-open',isOpen);
+  });
+  nav.querySelectorAll('a').forEach(link=>{
+    link.addEventListener('click',()=>{
+      nav.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded','false');
+      document.body.classList.remove('nav-open');
+    });
+  });
+
+  const header=document.querySelector('header');
+  const mobileQuery=window.matchMedia('(max-width:1024px)');
+  mobileQuery.addEventListener('change',()=>{
+    nav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded','false');
+    document.body.classList.remove('nav-open');
+  });
+  let lastScrollY=window.scrollY;
+  window.addEventListener('scroll',()=>{
+    if(!mobileQuery.matches||document.body.classList.contains('nav-open')) return;
+    const currentScrollY=window.scrollY;
+    if(currentScrollY>lastScrollY&&currentScrollY>80){
+      header.classList.add('header-hidden');
+    }else{
+      header.classList.remove('header-hidden');
+    }
+    lastScrollY=currentScrollY;
+  },{passive:true});
+</script>
