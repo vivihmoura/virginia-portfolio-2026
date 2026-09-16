@@ -200,8 +200,9 @@ const { title, active, theme = "light" } = Astro.props;
   .about-portrait-frame{
     display:none;
     grid-area:frame;
-    width:100%;max-width:480px;
+    width:70%;max-width:336px;
     aspect-ratio:1/1;
+    margin-inline-end:auto;
   }
   .about-portrait-frame img{width:100%;height:100%;object-fit:contain;display:block}
 
@@ -211,8 +212,9 @@ const { title, active, theme = "light" } = Astro.props;
       grid-template-areas:
         "frame"
         "content";
+      row-gap:calc(var(--title-gap) * 0.65);
       min-height:0;
-      padding-top:var(--title-gap);
+      padding-top:calc(var(--title-gap) * 3.6);
     }
     .about-title{max-width:100%}
     .about-portrait-bleed{display:none}
