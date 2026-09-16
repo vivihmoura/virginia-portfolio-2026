@@ -109,7 +109,7 @@ const { title, active, theme = "light" } = Astro.props;
 
   .project-title{
     padding:var(--header-gap) var(--pad) var(--title-gap);
-    max-width:45%;
+    max-width:75%;
   }
 
   .project{padding:0 var(--pad) var(--header-gap)}
@@ -269,7 +269,6 @@ const { title, active, theme = "light" } = Astro.props;
   }
   @media(max-width:600px){
     :root{--large:clamp(2.79rem,11.7vw,4.5rem)}
-    .hero h1,
     .project-title,
     .about-title{max-width:100%}
     .grid{grid-template-columns:1fr;row-gap:calc(var(--pad) * 2)}
