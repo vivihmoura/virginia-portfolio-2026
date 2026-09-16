@@ -268,7 +268,7 @@ export const illustrationProjectPages = [
           "Illustrations for young adult and fantasy novels by New York Times bestselling author David Levithan, published by Harper Collins. Art direction by Ryan Hammond.",
         ],
       },
-      { type: "image", src: "/images/harper-collins/harper-collins-page-02.avif" },
+      { type: "video", src: "/images/harper-collins/harper-collins-page-02.mp4" },
       { type: "image", src: "/images/harper-collins/harper-collins-page-03.avif" },
       { type: "image", src: "/images/harper-collins/harper-collins-page-04.avif" },
       { type: "image", src: "/images/harper-collins/harper-collins-page-05.avif" },
