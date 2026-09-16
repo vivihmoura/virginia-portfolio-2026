@@ -1,7 +1,7 @@
 export const illustrationProjects = [
   { slug: "urban-coffee", name: "Urban Coffee", href: "/illustration/urban-coffee" },
-  { slug: "virgin-atlantic", name: "Virgin Atlantic Magazine", href: "/illustration/virgin-atlantic" },
   { slug: "people-brooklyn-parks", name: "People of Brooklyn Parks", href: "/illustration/people-brooklyn-parks" },
+  { slug: "virgin-atlantic", name: "Virgin Atlantic Magazine", href: "/illustration/virgin-atlantic" },
   { slug: "harper-collins", name: "Harper Collins Book Covers", href: "/illustration/harper-collins" },
   { slug: "scholastic", name: "Scholastic", href: "/illustration/scholastic" },
   { slug: "spotted-ny", name: "Spotted in New York", href: "/illustration/spotted-ny" },
@@ -13,8 +13,8 @@ export const illustrationProjects = [
 
 const illustrationNextOrderSlugs = [
   "urban-coffee",
-  "virgin-atlantic",
   "people-brooklyn-parks",
+  "virgin-atlantic",
   "harper-collins",
   "scholastic",
   "spotted-ny",

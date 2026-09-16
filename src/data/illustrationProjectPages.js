@@ -2,6 +2,7 @@ export const illustrationProjectPages = [
   {
     slug: "virgin-atlantic",
     title: "Virgin Atlantic Magazine",
+    titleWrapCh: 16,
     hero: "/images/virgin-atlantic/virgin-atlantic-page-01.avif",
     blocks: [
       {
@@ -256,6 +257,7 @@ export const illustrationProjectPages = [
   {
     slug: "harper-collins",
     title: "Harper Collins Book Covers",
+    titleWrapCh: 17,
     hero: "/images/harper-collins/harper-collins-page-01.avif",
     blocks: [
       {
@@ -337,6 +339,7 @@ export const illustrationProjectPages = [
   {
     slug: "spotted-ny",
     title: "Spotted in New York",
+    titleWrapCh: 12,
     hero: "/images/spotted-ny/spotted-ny-page-01.avif",
     blocks: [
       {

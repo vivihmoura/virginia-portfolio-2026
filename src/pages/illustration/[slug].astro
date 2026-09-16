@@ -26,7 +26,7 @@ const mediaBlockTypes = ["image", "video", "images-2", "videos-2", "rotating-svg
 const hasOnlyHero = !project.blocks.some((block) => mediaBlockTypes.includes(block.type));
 ---
 <BaseLayout title={`Virginia Moura — ${project.title}`} active="illustration" theme="dark">
-  <ProjectTitle title={project.title} titleLines={project.titleLines} />
+  <ProjectTitle title={project.title} titleLines={project.titleLines} wrapCh={project.titleWrapCh} />
 
   <section class="project">
     <div class="project-blocks">

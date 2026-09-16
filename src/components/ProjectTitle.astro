@@ -1,7 +1,7 @@
 ---
-const { title, titleLines } = Astro.props;
+const { title, titleLines, wrapCh } = Astro.props;
 ---
-<h1 class="project-title">{titleLines
+<h1 class="project-title" style={wrapCh ? `max-width:${wrapCh}ch` : undefined}>{titleLines
   ? titleLines.map((line, i) => (
       <>
         {i > 0 && <br />}
