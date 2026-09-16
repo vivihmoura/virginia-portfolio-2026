@@ -8,7 +8,7 @@ import VideosTwoBlock from '../../components/blocks/VideosTwoBlock.astro';
 import RotatingSvgBlock from '../../components/blocks/RotatingSvgBlock.astro';
 import ProjectNav from '../../components/ProjectNav.astro';
 import ProjectTitle from '../../components/ProjectTitle.astro';
-import { illustrationProjects } from '../../data/projects.js';
+import { illustrationNextOrder } from '../../data/projects.js';
 import { illustrationProjectPages } from '../../data/illustrationProjectPages.js';
 import { getNextSlug } from '../../data/projectNav.js';
 
@@ -20,7 +20,7 @@ export function getStaticPaths() {
 }
 
 const { project } = Astro.props;
-const nextSlug = getNextSlug(illustrationProjects, illustrationProjectPages, project.slug);
+const nextSlug = getNextSlug(illustrationNextOrder, illustrationProjectPages, project.slug);
 const HeroBlock = project.hero.endsWith(".mp4") ? VideoBlock : ImageBlock;
 const mediaBlockTypes = ["image", "video", "images-2", "videos-2", "rotating-svg"];
 const hasOnlyHero = !project.blocks.some((block) => mediaBlockTypes.includes(block.type));
