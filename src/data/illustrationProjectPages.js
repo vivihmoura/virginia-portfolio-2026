@@ -68,7 +68,7 @@ export const illustrationProjectPages = [
       {
         type: "text",
         meta: [
-          ["2025 — Printfresh & ", { text: "Bright Agency", href: "https://thebrightagency.com/us" }],
+          ["2025 — ", { text: "Bright Agency", href: "https://thebrightagency.com/us" }],
           "Digital Illustration",
         ],
         paragraphs: [
