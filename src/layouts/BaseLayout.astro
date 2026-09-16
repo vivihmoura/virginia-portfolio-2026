@@ -86,7 +86,8 @@ const { title, active, theme = "light" } = Astro.props;
   .work{padding:0 var(--pad) clamp(4rem,10vh,7rem)}
   .grid{
     display:grid;grid-template-columns:repeat(2,1fr);
-    gap:clamp(1.5rem,3vw,2.5rem);
+    column-gap:var(--pad);
+    row-gap:calc(var(--pad) * 2);
   }
   .item{display:block}
 
@@ -230,7 +231,8 @@ const { title, active, theme = "light" } = Astro.props;
   }
 
   @media(max-width:1024px){
-    header{position:sticky;top:0;z-index:20;transition:transform .3s ease}
+    :root{--small:1.1rem}
+    header{position:sticky;top:0;z-index:20;transition:transform .3s ease;padding:calc(1.6rem * 0.7) var(--pad)}
     header.header-hidden{transform:translateY(-100%)}
     .menu-toggle{display:flex}
     .brand{position:relative;z-index:1}
@@ -247,20 +249,42 @@ const { title, active, theme = "light" } = Astro.props;
       transition:opacity .25s ease,visibility .25s ease;
     }
     nav a{padding:.7rem 0}
+    .hero,
+    .project-title{
+      padding-top:calc(var(--title-gap) * 3.6);
+    }
   }
   @media(max-width:768px){
     .thumb-hover-video video{display:none}
     .thumb-hover-video picture{display:block}
   }
+  @media(min-width:601px) and (max-width:1024px){
+    .thumb{overflow:visible;aspect-ratio:auto;background:none}
+    .thumb picture,
+    .thumb img,
+    .thumb-video video,
+    .thumb-hover-video video{
+      width:100%;height:auto;object-fit:contain;
+    }
+  }
   @media(max-width:600px){
-    :root{--large:clamp(3.1rem,13vw,5rem)}
+    :root{--large:clamp(2.79rem,11.7vw,4.5rem)}
     .hero h1,
     .project-title,
     .about-title{max-width:100%}
-    .grid{grid-template-columns:1fr;gap:1.6rem}
+    .grid{grid-template-columns:1fr;row-gap:calc(var(--pad) * 2)}
     .thumb{aspect-ratio:4/5}
     .thumb-video picture{display:none}
     .thumb-video video{display:block}
+  }
+  @media(max-width:414px){
+    :root{--large:2.62rem}
+  }
+  @media(max-width:340px){
+    :root{--large:2.51rem}
+  }
+  @media(min-width:1440px){
+    :root{--large:clamp(2.91rem,6.83vw,5.92rem)}
   }
   @media(prefers-reduced-motion:reduce){
     *{transition:none!important}
